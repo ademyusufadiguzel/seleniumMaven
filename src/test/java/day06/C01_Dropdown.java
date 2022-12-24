@@ -65,6 +65,11 @@ public class C01_Dropdown {
     public void tearDown(){
         driver.close();
     }
+
+    //REUSABLE METHOD: Dropdown icin tekrar tekrar kullanabilecegimiz bir method olusturalim
+
+
+
     /*
     1. What is dropdown? Dropdown nedir?
     Dropdown liste olusturmak icin kullanilir.
