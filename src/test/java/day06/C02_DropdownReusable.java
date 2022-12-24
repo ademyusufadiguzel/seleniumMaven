@@ -2,6 +2,7 @@ package day06;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,16 +33,16 @@ public class C02_DropdownReusable {
 
 //      Gonderilen dropdown elemention tum options'lari alinir
         List<WebElement> options = dropdown.findElements(By.tagName("option"));//Tum option tagli elementleri aliyorum
-        for (WebElement eachOption : options){
-            if (eachOption.getText().equals(secenek)){
+        for (WebElement eachOption : options) {
+            if (eachOption.getText().equals(secenek)) {
                 eachOption.click();
                 break;
             }
         }
-
-
-
     }
 
-
+    @Test
+    public void selectFromDropdown(){
+        selectFromDropdown(driver.findElement(By.xpath("//select[@id='year']")), "2005");
+    }
 }
