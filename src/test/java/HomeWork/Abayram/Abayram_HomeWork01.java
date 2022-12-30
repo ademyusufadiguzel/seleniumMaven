@@ -1,4 +1,4 @@
-package HomeWork;
+package HomeWork.Abayram;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -18,14 +18,4 @@ public class Abayram_HomeWork01 extends TestBase {
         Sonrasinda paragrafa “iframein icindeyim” yazisini yazdıralım
         Alt kısımdaki yazının ‘Elemental Selenium’ yazisini içerdiğini test edelim
      */
-
-    @Test
-    public void test1(){
-        driver.get("https://the-internet.herokuapp.com/iframe");
-        driver.findElements(By.tagName("iframe"));
-
-
-    }
-
-
 }
