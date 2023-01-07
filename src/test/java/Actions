@@ -1,0 +1,15 @@
+1-Actions nedir?
+  *Actions selenium dan gelen bir kutuphanedir.
+   Mouse ve Keyboard islemlerini gerceklestirmek icin kullandigimiz hazir bir selenium kutuphanesidir.
+   ORN: sag tiklamak, cift tiklamak, shift,alt,down,up,control,delete,enter gibi keyboard tuslarindada
+   actions yardimiyla basabiliriz. Bu tur islemlerde sendKeys methodu kullanilir.
+
+2-Actions Class nedir?
+3-Ne tur methodlar kullandin?
+  *Actions methodlari onemlidir ve tekarar kullanmam gerektiginden, Actions methodlarini iceren
+   Reusable methodlari olusturdum. Ve gerektiginde bu reusable methodlari kullaniyorum.
+   ORN: rightClick methodunu bir elemente sag tiklamak icin test classimda cagirabilirim
+
+4-Hangi methodlari kullandin ne ne ise yarar?
+   ORN: sag tiklamak, cift tiklamak, shift,alt,down,up,control,delete,enter gibi keyboard tuslarindada
+   actions yardimiyla basabiliriz. Bu tur islemlerde sendKeys methodu kullanilir.
