@@ -12,7 +12,7 @@ import utilities.TestBase;
 
 import java.util.List;
 
-public class Abayram_HomeWork3 extends TestBase {
+public class Abayram_HomeWork03 extends TestBase {
 
     //Test01 :  1- amazon gidin
     //Arama kutusunun solundaki dropdown menuyu handle edip listesini ekrana yazdırın
