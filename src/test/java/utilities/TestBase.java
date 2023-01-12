@@ -107,8 +107,11 @@ public abstract class TestBase {
 //        Actions actions = new Actions(driver);
         new Actions(driver).dragAndDropBy(source,x,y).perform();
     }
-    //    DYNAMIC SELENIUM WAITS:
-//===============Explicit Wait==============//
+
+
+
+                //          DYNAMIC SELENIUM WAITS:
+                //===============Explicit Wait==============//
     public static WebElement waitForVisibility(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOf(element));

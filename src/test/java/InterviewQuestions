@@ -1,0 +1,27 @@
+ ----- Seleniumda aldigin 5 Exception -----
+ -NullPointerException
+ -NoSuchMethodException
+ -TimeoutException
+ -StaleElementException
+ -WebDriverException
+
+ ----- Genele olarak exception aldiginda cozum yolun nedir? -----
+ -Hata mesajini oku
+ -Genele olarak zamanlama, yanlis locator, iframe hatalari olabiliyor
+ -Hata mesajina gore exception'i cozdukten sonra tekrar kodumu calistiririm
+
+ ----- Seleniumda kullandimgim waitler nelerdir? -----
+ -Implicit yada explicit yada fluent
+
+ ----- Hangi waiti tercih edersin? -----
+ -TestBase(Drive sinifinda) implicit wait kullaniyorum.
+ -Cogu problemi bozuyor cozemedigi durumlarda explicit wait kullaniyorum.
+
+ ----- Neden Explicit Wait? -----
+ -Explicit wait element'e ozel yazilabilir. Yerel cozum gerektiginde explicit wait'i kullanmak zorundayiz
+
+ ----- Senkronize(bekleme) problemlerini nasil cozersin? -----
+ -Selenium waitlerini kullanarak. Implicit wait driver'im da var
+ -ama yetmedigi durumlarda explicit wait kullanirim.
+ -Bu yuzden ReusableMethod sinifimda tekrar tekrar kullanabilecegimiz explicit wait method'lari var.
+ -Kolaylikla explicit wait ile bekleme problemlerini cozebiliyoruz
