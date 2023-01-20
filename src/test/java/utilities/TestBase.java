@@ -10,10 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.io.File;
 import java.io.IOException;
-import java.security.Key;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -114,11 +112,8 @@ public abstract class TestBase {
 //        Actions actions = new Actions(driver);
         new Actions(driver).dragAndDropBy(source,x,y).perform();
     }
-
-
-
-                //          DYNAMIC SELENIUM WAITS:
-                //===============Explicit Wait==============//
+    //    DYNAMIC SELENIUM WAITS:
+//===============Explicit Wait==============//
     public static WebElement waitForVisibility(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOf(element));
@@ -135,6 +130,7 @@ public abstract class TestBase {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
+    //COK KULLANILMAZ
     public static void clickWithTimeOut(WebElement element, int timeout) {
         for (int i = 0; i < timeout; i++) {
             try {
@@ -145,7 +141,7 @@ public abstract class TestBase {
             }
         }
     }
-    //    This can be used when a new page opens, yeni sayfaya gecislerde kullanilir.
+    //    This can be used when a new page opens. Yeni sagfaya gecislerde kullanilabilir
     public static void waitForPageToLoad(long timeout) {
         ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver driver) {
@@ -172,8 +168,6 @@ public abstract class TestBase {
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
         return element;
     }
-
-
     //   SCREENSHOTS
     public void takeScreenShotOfPage() throws IOException {
 //        1. Take screenshot
@@ -185,11 +179,9 @@ public abstract class TestBase {
         String path = System.getProperty("user.dir")+"/test-output/Screenshots/"+currentTime+"image.png";
         FileUtils.copyFile(image,new File(path));
     }
-
-
     //    SCREENSHOT
 //    @params: WebElement
-//    takes screenshot
+//
     public void takeScreenshotOfElement(WebElement element) throws IOException {
 //        1. take screenshot
         File image = element.getScreenshotAs(OutputType.FILE);
@@ -199,46 +191,49 @@ public abstract class TestBase {
         String path = System.getProperty("user.dir")+"/test-output/Screenshots/"+currentTime+"image.png";
         FileUtils.copyFile(image,new File(path));
     }
-
-    //SCROLLINTOVIEWJS
+    //    SCROLLINTOVIEWJS
+//    @param : WebElement
+//    Verilen webelementin uzerine kaydirir
     public void scrollIntoViewJS(WebElement element){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("arguments[0].scrollIntoView(true);",element);
     }
-
-    //SAYFANIN EN ALTINA IN
+    //    SAYFANIN EN ALTINA IN
+//    Bu method ile sayfanin en altina inebiliriz
     public void scrollEndJS(){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
     }
-
-    //SAYFANIN EN USTUNE CIK
+    //    Bu metot ile sayfanin en ustune cikabiliriz
     public void scrollTopJS(){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollTo(0,-document.body.scrollHeight);");
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
     }
-
-    //Bu method ile belirli bir elemente JS executor ile tiklanabilir.
+    //    Bu metot ile belirli bir elemente JS executor ile tiklanabilir
     public void clickByJS(WebElement element){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("arguments[0].click();",element);
     }
-
     //   gitmis oldugum metni elemente yazdirir
-    //    bu method sendKeys metotuna bir alternatifdir.
-    //    sendKeys oncelikli tercihimizdir
+//    bu method sendKeys metotuna bir alternatifdir.
+//    sendKeys oncelikli tercihimizdir
     public void typeWithJS(WebElement element, String metin){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].setAttribute('value','"+metin+"');",element);
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].setAttribute('value','"+metin+"')",element);
     }
-
-
-
-
-
-
-
-
-
-
+    //    input elementindeki degerleri(value) al
+//   Belirli bir WebElement'in id değerini String olarak alır ve value attribute değerini String olarak döndürür
+//    return
+//    document HTML'E GIT
+//    .getElementById('" + idOfElement + "') ID'si VERILEN ELEMENTI BUL
+//    .value")
+//    .toString();
+    public void getValueByJS(String idOfElement) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String text = js.executeScript("return document.getElementById('" + idOfElement + "').value").toString();
+        System.out.println("Kutudaki value: " + text);
+//        NOT: document.querySelector("p").value;  -> TAG KULLANILABILIR
+//             document.querySelector(".example").value; -> CSS DEGERI KULLANILABILIR
+//             document.querySelector("#example").value; -> CSS DEGERI KULLANILABILIR
+    }
 }

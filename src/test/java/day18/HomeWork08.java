@@ -1,8 +1,6 @@
-package HomeWork.Abayram;
+package day18;
 
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import utilities.TestBase;
 
 public class HomeWork08 extends TestBase {
